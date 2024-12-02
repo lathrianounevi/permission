@@ -35,6 +35,8 @@
             <artifactId>permission-common</artifactId>
             <version>${permission-common}</version>
         </dependency>
+
+
     </dependencies>
 
     <build>
