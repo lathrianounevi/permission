@@ -28,9 +28,9 @@ public class RoleRequest {
 
     @Schema(description = "创建时间")
     @JsonFormat(pattern = "yyy-MM-dd", timezone = "GMT+8")
-    private Date ctime;
+    private Date createTime;
 
     @Schema(description = "更新时间")
     @JsonFormat(pattern = "yyy-MM-dd", timezone = "GMT+8")
-    private Date utime;
+    private Date updateTime;
 }

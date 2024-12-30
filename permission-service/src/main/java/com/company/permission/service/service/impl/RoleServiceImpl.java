@@ -5,12 +5,15 @@ import com.baomidou.mybatisplus.core.toolkit.Assert;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.company.permission.common.exception.BizException;
 import com.company.permission.common.model.Role;
+import com.company.permission.common.request.PageParamRequest;
 import com.company.permission.common.request.RoleRequest;
-import com.company.permission.common.response.RoleResponse;
 import com.company.permission.service.dao.RoleDao;
 import com.company.permission.service.service.RoleService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import jakarta.annotation.Resource;
 import org.springframework.beans.BeanUtils;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
@@ -19,6 +22,7 @@ import java.util.Objects;
  * @author candylove
  * @date 2024/11/29 15:44
  */
+@Service
 public class RoleServiceImpl extends ServiceImpl<RoleDao, Role> implements RoleService {
 
     @Resource
@@ -47,15 +51,20 @@ public class RoleServiceImpl extends ServiceImpl<RoleDao, Role> implements RoleS
     }
 
     @Override
-    public RoleResponse getOneById(Long id) {
-        Assert.notNull(id, "id不能为空");
+    public PageInfo<Role> getList(PageParamRequest request) {
+        LambdaQueryWrapper<Role> lqw = new LambdaQueryWrapper<>();
+        PageHelper.startPage(request.getPage(), request.getLimit());
+        List<Role> roles = roleDao.selectList(lqw);
+        return new PageInfo<>(roles);
+    }
+
+    @Override
+    public Role getOneById(Long id) {
         Role role =  roleDao.selectById(id);
         if (Objects.isNull(role)) {
             throw new BizException("角色不存在");
         }
-        RoleResponse response = new RoleResponse();
-        BeanUtils.copyProperties(role, response);
-        return response;
+        return role;
     }
 
 

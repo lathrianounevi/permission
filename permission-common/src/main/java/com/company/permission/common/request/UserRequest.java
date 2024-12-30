@@ -1,28 +1,19 @@
-package com.company.permission.common.model;
+package com.company.permission.common.request;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
 /**
  * @author candylove
- * @date 2024/11/28 15:12
+ * @date 2024/12/10 15:37
  */
 @Data
-@TableName("sys_user")
-@AllArgsConstructor
-@NoArgsConstructor
-@Schema(description = "用户对象")
-public class User {
+@Schema(description = "用户请求对象")
+public class UserRequest {
 
-    @TableId(value = "user_id", type = IdType.AUTO)
     @Schema(description = "用户id")
     private Long userId;
 
@@ -57,4 +48,5 @@ public class User {
     @Schema(description = "更新时间")
     @JsonFormat(pattern = "yyy-MM-dd", timezone = "GMT+8")
     private Date updateTime;
+
 }

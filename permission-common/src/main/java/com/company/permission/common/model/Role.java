@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -20,9 +21,9 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "角色对象")
-public class Role {
+public class Role implements Serializable {
 
-    @TableId(value = "id", type = IdType.AUTO)
+    @TableId(value = "role_id", type = IdType.AUTO)
     @Schema(description = "角色id")
     private Long RoleId;
 
@@ -37,10 +38,10 @@ public class Role {
 
     @Schema(description = "创建时间")
     @JsonFormat(pattern = "yyy-MM-dd", timezone = "GMT+8")
-    private Date ctime;
+    private Date createTime;
 
     @Schema(description = "更新时间")
     @JsonFormat(pattern = "yyy-MM-dd", timezone = "GMT+8")
-    private Date utime;
+    private Date updateTime;
 
 }

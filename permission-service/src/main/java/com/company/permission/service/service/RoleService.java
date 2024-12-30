@@ -2,10 +2,10 @@ package com.company.permission.service.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.company.permission.common.model.Role;
+import com.company.permission.common.request.PageParamRequest;
 import com.company.permission.common.request.RoleRequest;
 import com.company.permission.common.response.RoleResponse;
-
-import java.util.List;
+import com.github.pagehelper.PageInfo;
 
 public interface RoleService extends IService<Role> {
 
@@ -16,13 +16,18 @@ public interface RoleService extends IService<Role> {
      */
     Long save(RoleRequest request);
 
-
+    /**
+     * 角色分页列表
+     * @param request
+     * @return Page
+     */
+    PageInfo<Role> getList(PageParamRequest request);
 
     /**
      * 根据id获取详情
      * @param id
      * @return RoleRequest
      */
-    RoleResponse getOneById(Long id);
+    Role getOneById(Long id);
 
 }

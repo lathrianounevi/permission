@@ -8,6 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @MapperScan(basePackages = "com.company.**.dao")
 @ComponentScan(basePackages = "com.company")
+//@EnableWebSecurity
 public class PermissionAdminApplication {
 
     public static void main(String[] args) {

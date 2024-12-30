@@ -18,34 +18,13 @@
         <permission-common>0.0.1-SNAPSHOT</permission-common>
     </properties>
     <dependencies>
-        <!--Spring-Boot-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-
         <!--permission-common-->
         <dependency>
             <groupId>com.company</groupId>
             <artifactId>permission-common</artifactId>
             <version>${permission-common}</version>
         </dependency>
-
+        
 
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
-
 </project>

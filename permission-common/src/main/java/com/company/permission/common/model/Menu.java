@@ -5,4 +5,7 @@ package com.company.permission.common.model;
  * @date 2024/11/28 15:13
  */
 public class Menu {
+
+
+
 }
